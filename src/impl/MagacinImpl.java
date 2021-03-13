@@ -30,7 +30,8 @@ public class MagacinImpl implements IMagacin {
 		}
 		if(artikli.contains(artikal)) {
 			int i = artikli.indexOf(artikal);
-			int kolicina = artikli.get(i).getKolicina();
+			Artikal a = artikli.get(i);
+			int kolicina = a.getKolicina();
 			artikli.get(i).setKolicina(kolicina + 1);
 		} else {
 			artikli.add(artikal);
