@@ -14,4 +14,13 @@ public class KucnaHemija extends Artikal{
 		this.rokTrajanja = rokTrajanja;
 	}
 
+	@Override
+	public String toString() {
+		return "Naziv artikla: " + getNaziv() + "\nSifra: " + getSifra() + 
+				"\nOpis: " + getOpis() + "\nKolicina: " + getKolicina() + 
+				"\nRok trajanja: " + rokTrajanja;
+	}
+	
+	
+
 }
