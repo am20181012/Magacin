@@ -1,5 +1,6 @@
 package impl;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,14 +15,23 @@ public class MagacinImpl implements IMagacin {
 		artikli = new ArrayList<>();
 	}
 
+	public List<Artikal> getArtikli() {
+		return artikli;
+	}
+
+	public void setArtikli(List<Artikal> artikli) {
+		this.artikli = artikli;
+	}
+
 	@Override
 	public void dodajArtikal(Artikal artikal) {
+		if(artikal == null) {
+			throw new NullPointerException("Uneti artikal ne moze biti null.");
+		}
 		if(artikli.contains(artikal)) {
-			for(int i = 0; i < artikli.size(); i++) {
-				if(artikli.get(i).equals(artikal)) {
-					artikli.get(i).setKolicina(artikli.get(i).getKolicina() + 1);
-				}
-			}
+			int i = artikli.indexOf(artikal);
+			int kolicina = artikli.get(i).getKolicina();
+			artikli.get(i).setKolicina(kolicina + 1);
 		} else {
 			artikli.add(artikal);
 		}
@@ -47,7 +57,6 @@ public class MagacinImpl implements IMagacin {
 			}
 			throw new RuntimeException("U lisiti nema artikla pod navedenom sifrom.");
 		}
-		
 	}
 	
 }
